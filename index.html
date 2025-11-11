@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WOLFTOPIA — Winter Edition</title>
+  <link rel="icon" type="image/png" href="/mnt/data/4121102e-55a3-40a5-b64c-7ba72949014c.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #b9dcff, #0d1a33 70%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Rubik', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    .logo {
+      width: 180px;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .discord {
+      position: absolute;
+      bottom: 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      color: #dbe9ff;
+      background: rgba(255,255,255,0.08);
+      padding: 10px 20px;
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      transition: all .4s ease;
+    }
+
+    .discord:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .discord svg {
+      width: 28px; height: 28px; fill: #dbe9ff;
+    }
+
+    .updates {
+      position: absolute;
+      bottom: 20px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    /* Schneeflocken */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="/mnt/data/4121102e-55a3-40a5-b64c-7ba72949014c.png" class="logo" alt="Wolftopia Logo">
+
+  <a class="discord" href="https://discord.gg" target="_blank">
+    <svg viewBox="0 0 245 240"><path d="M104.4 104.3c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.2-5 10.2-11.1.1-6.2-4.5-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1 5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/><path d="M189.5 20h-134C24.7 20 10 34.7 10 52.1v135.8c0 17.4 14.7 32.1 32.5 32.1h113.4l-5.3-18.4 12.8 12 12.1 11.3 21.5 19V52.1C197 34.7 202.9 20 189.5 20zm-38.6 135s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.4-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.6-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.2-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.4 14.4-58.4 14.4-10.8 28-10.5 28-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.1-6 22.6-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.6-.3 28 10.5c0 0 14.4 26.2 14.4 58.4 0 0-8.5 14.5-30.6 15.2z"/></svg>
+    Discord
+  </a>
+
+  <div class="updates">UPDATES: Soon...</div>
+
+  <script>
+    // Schneeflocken generieren
+    const snowCount = 50;
+    for(let i=0;i<snowCount;i++){
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.textContent = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.fontSize = (Math.random() * 1.2 + 0.5) + 'em';
+      snow.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      snow.style.animationDelay = (Math.random() * 5) + 's';
+      document.body.appendChild(snow);
+    }
+  </script>
+</body>
+</html>
